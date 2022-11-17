@@ -9,12 +9,13 @@ pipeline {
                 }  
             }
         }
-        stage ('Push Image A')
+        stage ('Push Image A') {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
                         dockerappa.push('latest')
                 }
             } 
+        }    
     }
 }
