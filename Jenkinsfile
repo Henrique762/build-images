@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script{
                     witchKubeConfif([credentialId: 'kubeconfing'])
-                        sh 'kubectl apply -f /k8s/.'
+                        sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
                 }
             }
         }
