@@ -36,8 +36,12 @@ pipeline {
             } 
         }    
         stage ('Deploy-k8s') {
-                    withKubeConfig([credentialsId: 'kubeconfig'])
+                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://B8932378C2D948B945F153F72C0FD225.yl4.us-east-2.eks.amazonaws.com'])
+            steps {
+                script{
                         sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
                 }
+            }
+        }
     }
 }
