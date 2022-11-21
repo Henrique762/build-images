@@ -8,7 +8,8 @@ pipeline {
         stage ('BuildImage-A') {
             steps {
                 script {
-                    dockerapp = docker.build("henrique77/appa", '-f ./appa/Dockerfile ./appa')
+                    dockerappa = docker.build("henrique77/appa", '-f ./appa/Dockerfile ./appa')
+                    dockerappb = docker.build("henrique77/appb", '-f ./appb/Dockerfile ./appb')
                 }  
             }
         }
@@ -25,7 +26,8 @@ pipeline {
             steps {
                 script {
                         //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
-                            dockerapp.push('latest')
+                            dockerappa.push('latest')
+                            dockerappb.push('latest')
                 }
             } 
         }    
