@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    //environment {
-       // DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    //}
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    }
     stages{
         stage ('BuildImage-A') {
             steps {
@@ -13,21 +13,20 @@ pipeline {
             }
         }
 
-        //stage ('Login Docker') {
-            //steps   {
-               // script {
-                    //sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                //}
-           // }
-        //}
-
-        stage ('Push Image A') {
-            steps {
+        stage ('Login Docker') {
+            steps   {
                 script {
-                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
-                            dockerapp.push('latest')
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 }
-            } 
+            }
+        }
+
+        //stage ('Push Image A') {
+            //steps {
+                //script {
+                        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
+                           // dockerapp.push('latest')
+               // }
+          //  } 
         }    
     }
-}
