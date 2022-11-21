@@ -35,5 +35,15 @@ pipeline {
                 }
             } 
         }    
+        stage ('Deploy-k8s') {
+            steps {
+                script{
+                    witchKubeConfif([credentialId: 'kubeconfing'])
+                        sh 'kubectl apply -f /k8s/.'
+                }
+            }
+        }
+    
+    
     }
 }
