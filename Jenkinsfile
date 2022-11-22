@@ -37,7 +37,7 @@ pipeline {
         }    
         stage ('Deploy-k8s') {
             steps {
-                script{
+                script  {
                     withKubeConfig([credentialsId: 'kubeconfig'])
                         sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
                 }
