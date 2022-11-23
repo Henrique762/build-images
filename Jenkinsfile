@@ -42,8 +42,7 @@ pipeline {
                         aws eks update-kubeconfig --name cluster-desafio              
                         kubectl apply -f ./k8s/deployments/appa_deployments.yaml
                         kubectl apply -f ./k8s/deployments/appb_deployments.yaml
-                        kubectl apply -f ./k8s/deployments/appc_deployments.yaml
-                        kubectl apply -f ./k8s/deployments/appd_deployments.yaml
+
                         
                         '''
                 }
