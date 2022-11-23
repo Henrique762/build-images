@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: hc.daredelabs.com.br
+  - host: appc.henrq.tk
     http:
       paths:
       - path: "/"
@@ -16,7 +16,7 @@ spec:
             port:
               number: 80
 
-  - host: hd.daredelabs.com.br
+  - host: appd.henrq.tk
     http:
       paths:  
       - path: "/"

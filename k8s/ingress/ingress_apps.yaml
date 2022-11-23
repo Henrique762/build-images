@@ -5,10 +5,10 @@ metadata:
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: h.daredelabs.com.br
+  - host: apps.henrq.tk
     http:
       paths:
-      - path: /appa
+      - path: "/appa"
         pathType: ImplementationSpecific
         backend:
           service:
@@ -16,8 +16,8 @@ spec:
             port:
               number: 80
 
-      - path: /appb 
-        pathType: Prefix
+      - path: "/appb" 
+        pathType: ImplementationSpecific
         backend:
           service:
             name: app-b-service
