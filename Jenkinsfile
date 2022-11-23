@@ -37,7 +37,10 @@ pipeline {
         stage ('Deploy-k8s') {
             steps {
                 script  {
-                        sh "aws eks update-kubeconfig --name cluster-desafio"                    
+                    withAwsCli(
+                        credentialsId: 'hq', defaultRegion: 'us-east-1'
+                    )
+                        sh 'aws eks update-kubeconfig --name cluster-desafio'                   
                         sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
                 }
             }
