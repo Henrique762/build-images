@@ -8,18 +8,18 @@ spec:
   - host: apps.henrq.tk
     http:
       paths:
-      - path: /appa
+      - path: "/appa"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-a-service
+            name: app-a
             port:
               number: 80
 
-      - path: /appb
+      - path: "/appb"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-b-service
+            name: app-b
             port:
               number: 80

@@ -12,7 +12,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-c-service
+            name: app-c
             port:
               number: 80
 
@@ -23,6 +23,6 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-d-service
+            name: app-d
             port:
               number: 80

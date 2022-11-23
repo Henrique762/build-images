@@ -17,11 +17,8 @@ spec:
     spec:
       containers:
         - name: app-a
-          image: henrique77/appa
+          image: henrique77/appa:latest
           ports:
           - containerPort: 80
             name: nginx
-            protocol: TCP
-          - containerPort: 443
-            name: https
             protocol: TCP
