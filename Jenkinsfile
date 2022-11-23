@@ -27,7 +27,6 @@ pipeline {
         stage ('Push Image A') {
             steps {
                 script {
-                        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
                             dockerappa.push('latest')
                             dockerappb.push('latest')
                             dockerappc.push('latest')
@@ -38,7 +37,7 @@ pipeline {
         stage ('Deploy-k8s') {
             steps {
                 script  {
-                    withKubeConfig([credentialsId: 'kubeconfig'])
+                        sh "aws eks update-kubeconfig --name cluster-desafio"                    
                         sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
                 }
             }
