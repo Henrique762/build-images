@@ -37,9 +37,12 @@ pipeline {
         stage ('Deploy-k8s') {
             steps {
                 script  {
-                        sh 'export AWS_PROFILE=default'
-                        sh 'aws eks update-kubeconfig --name cluster-desafio'                   
-                        sh 'kubectl apply -f ./k8s/deployments/appa_deployments.yaml'
+                    sh '''
+                        export AWS_PROFILE=default
+                        aws eks update-kubeconfig --name cluster-desafio              
+                        kubectl apply -f ./k8s/deployments/appa_deployments.yaml
+                        
+                        '''
                 }
             }
         }
