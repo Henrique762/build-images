@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app-c
-          image: henrique77/apps:appc
+          image: henrique77/appc
           ports:
           - containerPort: 80
             name: nginx

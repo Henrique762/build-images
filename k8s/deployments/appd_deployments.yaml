@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app-d
-          image: henrique77/apps:appd
+          image: henrique77/appd
           ports:
           - containerPort: 80
             name: nginx
