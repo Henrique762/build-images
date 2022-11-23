@@ -38,10 +38,11 @@ pipeline {
             steps {
                 script  {
                     sh '''
+                        
                         export AWS_PROFILE=default
-                        aws eks update-kubeconfig --name cluster-desafio              
-                        kubectl apply -f ./k8s/deployments/appa_deployments.yaml
-                        kubectl apply -f ./k8s/deployments/appb_deployments.yaml
+                        aws eks update-kubeconfig --name cluster-desafio
+                        kubectl delete deployments app-a app-b app-c app-d               
+
 
                         
                         '''
